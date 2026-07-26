@@ -12,7 +12,7 @@ pipeline {
             }
             post {
                 always {
-                    junit 'target/surefire-reports/*.xml'
+                    junit testDataPublishers: [junitFlakyTestPublisher()], 'target/surefire-reports/*.xml'
                 }
             }
         }
