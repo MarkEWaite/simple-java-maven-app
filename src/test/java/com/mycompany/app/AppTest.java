@@ -27,6 +27,6 @@ public class AppTest
     @Test
     public void flakyTest()
     {
-        assertTrue(Math.random() > 0.5);
+        assertTrue(Math.random() > 0.75);
     }
 }
