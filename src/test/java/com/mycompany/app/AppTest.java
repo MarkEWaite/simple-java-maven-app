@@ -25,8 +25,8 @@ public class AppTest
     }
 
     @Test
-    @DisabledIfEnvironmentVariable(named="WORKSPACE",
-                                   matches="^[C-Z]:.*",
+    @DisabledIfEnvironmentVariable(named="WORKSPACE",   // Defined on CI agents
+                                   matches="^[C-Z]:.*", // Windows CI workspace path
                                    disabledReason="Low value on Windows CI")
     public void testDisabledOnWindows()
     {
