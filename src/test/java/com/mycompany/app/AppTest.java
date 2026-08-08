@@ -25,7 +25,9 @@ public class AppTest
     }
 
     @Test
-    @DisabledIfEnvironmentVariable(named="WORKSPACE", matches="^[C-Z]:.*") // Disable on Windows CI
+    @DisabledIfEnvironmentVariable(named="WORKSPACE",
+                                   matches="^[C-Z]:.*",
+                                   disabledReason="Low value on Windows CI")
     public void testDisabledOnWindows()
     {
         App app = new App();
