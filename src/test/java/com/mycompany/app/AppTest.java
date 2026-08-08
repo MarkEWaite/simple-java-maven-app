@@ -1,6 +1,7 @@
 package com.mycompany.app;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.DisabledIfEnvironmentVariable;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -18,6 +19,14 @@ public class AppTest
 
     @Test
     public void testAppMessage()
+    {
+        App app = new App();
+        assertEquals("Hello World!", app.getMessage());
+    }
+
+    @Test
+    @DisabledIfEnvironmentVariable(named="WORKSPACE", matches="^[C-Z]:") // Disable on Windows CI
+    public void testDisabledOnWindows()
     {
         App app = new App();
         assertEquals("Hello World!", app.getMessage());
